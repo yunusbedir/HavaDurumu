@@ -1,7 +1,8 @@
-package com.yunusbedir.havadurumu
+package com.yunusbedir.havadurumu.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.yunusbedir.havadurumu.R
 import com.yunusbedir.havadurumu.Repository.Csv.ReadCsv
 
 class MainActivity : AppCompatActivity() {
