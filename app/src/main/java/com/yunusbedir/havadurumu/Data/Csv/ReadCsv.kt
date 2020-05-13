@@ -1,4 +1,4 @@
-package com.yunusbedir.havadurumu.Repository.Csv
+package com.yunusbedir.havadurumu.Data.Csv
 
 import android.content.Context
 import android.util.Log
@@ -16,7 +16,7 @@ import kotlin.collections.ArrayList
  */
 class ReadCsv(private val app: Context) {
 
-    fun getSearchedList(text: String) {
+    fun getSearchedList(text: String): List<Region> {
         val resultList = ArrayList<Region>()
         val inputStream: InputStream = app.resources.openRawResource(R.raw.tr_koordinat)
         val reader = BufferedReader(InputStreamReader(inputStream))
@@ -33,5 +33,6 @@ class ReadCsv(private val app: Context) {
             }
             line = reader.readLine()
         }
+        return resultList
     }
 }

@@ -1,8 +1,15 @@
 package com.yunusbedir.havadurumu.Model
 
+
+import com.google.gson.annotations.SerializedName
+
 data class FeelsLike(
-    val day: Double,
-    val eve: Double,
-    val morn: Double,
-    val night: Double
+    @SerializedName("day")
+    var day: Double?,
+    @SerializedName("eve")
+    var eve: Double?,
+    @SerializedName("morn")
+    var morn: Double?,
+    @SerializedName("night")
+    var night: Double?
 )

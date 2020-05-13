@@ -1,9 +1,10 @@
 package com.yunusbedir.havadurumu.view
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.yunusbedir.havadurumu.R
-import com.yunusbedir.havadurumu.Repository.Csv.ReadCsv
+import com.yunusbedir.havadurumu.Data.Csv.ReadCsv
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        ReadCsv(this).getSearchedList("Sul")
+        val region = ReadCsv(this).getSearchedList("Sultan")[0]
+
     }
 }

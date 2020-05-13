@@ -9,22 +9,14 @@
         android:id="@+id/currentFragment"
         android:name="com.yunusbedir.havadurumu.view.CurrentFragment"
         android:label="fragment_current"
-        tools:layout="@layout/fragment_current" >
+        tools:layout="@layout/fragment_current">
         <action
-            android:id="@+id/action_currentFragment_to_dailyFragment"
-            app:destination="@id/dailyFragment" />
-        <action
-            android:id="@+id/action_currentFragment_to_hourlyFragment"
-            app:destination="@id/hourlyFragment" />
+            android:id="@+id/action_currentFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/dailyFragment"
-        android:name="com.yunusbedir.havadurumu.view.DailyFragment"
-        android:label="fragment_daily"
-        tools:layout="@layout/fragment_daily" />
-    <fragment
-        android:id="@+id/hourlyFragment"
-        android:name="com.yunusbedir.havadurumu.view.HourlyFragment"
-        android:label="fragment_hourly"
-        tools:layout="@layout/fragment_hourly" />
+        android:id="@+id/settingsFragment"
+        android:name="com.yunusbedir.havadurumu.view.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

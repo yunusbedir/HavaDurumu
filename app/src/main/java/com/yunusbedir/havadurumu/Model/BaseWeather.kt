@@ -1,11 +1,19 @@
 package com.yunusbedir.havadurumu.Model
 
+
+import com.google.gson.annotations.SerializedName
+
 data class BaseWeather(
-    val current: Current,
-    val daily: List<Daily>,
-    val hourly: List<Hourly>,
-    val lat: Double,
-    val lon: Double,
-    val minutely: List<Minutely>,
-    val timezone: String
+    @SerializedName("current")
+    var current: Current?,
+    @SerializedName("daily")
+    var daily: List<Daily>?,
+    @SerializedName("hourly")
+    var hourly: List<Hourly>?,
+    @SerializedName("lat")
+    var lat: Int?,
+    @SerializedName("lon")
+    var lon: Int?,
+    @SerializedName("timezone")
+    var timezone: String?
 )

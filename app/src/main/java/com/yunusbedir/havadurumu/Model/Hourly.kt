@@ -1,15 +1,27 @@
 package com.yunusbedir.havadurumu.Model
 
+
+import com.google.gson.annotations.SerializedName
+
 data class Hourly(
-    val clouds: Int,
-    val dew_point: Double,
-    val dt: Int,
-    val feels_like: Double,
-    val humidity: Int,
-    val pressure: Int,
-    val rain: Rain,
-    val temp: Double,
-    val weather: List<Weather>,
-    val wind_deg: Int,
-    val wind_speed: Double
+    @SerializedName("clouds")
+    var clouds: Int?,
+    @SerializedName("dew_point")
+    var dewPoint: Double?,
+    @SerializedName("dt")
+    var dt: Int?,
+    @SerializedName("feels_like")
+    var feelsLike: Double?,
+    @SerializedName("humidity")
+    var humidity: Int?,
+    @SerializedName("pressure")
+    var pressure: Int?,
+    @SerializedName("temp")
+    var temp: Double?,
+    @SerializedName("weather")
+    var weather: List<Weather>?,
+    @SerializedName("wind_deg")
+    var windDeg: Int?,
+    @SerializedName("wind_speed")
+    var windSpeed: Double?
 )

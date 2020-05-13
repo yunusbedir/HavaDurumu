@@ -1,10 +1,19 @@
 package com.yunusbedir.havadurumu.Model
 
+
+import com.google.gson.annotations.SerializedName
+
 data class Temp(
-    val day: Double,
-    val eve: Double,
-    val max: Double,
-    val min: Double,
-    val morn: Double,
-    val night: Double
+    @SerializedName("day")
+    var day: Double?,
+    @SerializedName("eve")
+    var eve: Double?,
+    @SerializedName("max")
+    var max: Double?,
+    @SerializedName("min")
+    var min: Double?,
+    @SerializedName("morn")
+    var morn: Double?,
+    @SerializedName("night")
+    var night: Double?
 )
