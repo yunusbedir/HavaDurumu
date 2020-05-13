@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/currentFragment">
+
+    <fragment
+        android:id="@+id/currentFragment"
+        android:name="com.yunusbedir.havadurumu.view.CurrentFragment"
+        android:label="fragment_current"
+        tools:layout="@layout/fragment_current" >
+        <action
+            android:id="@+id/action_currentFragment_to_dailyFragment"
+            app:destination="@id/dailyFragment" />
+        <action
+            android:id="@+id/action_currentFragment_to_hourlyFragment"
+            app:destination="@id/hourlyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dailyFragment"
+        android:name="com.yunusbedir.havadurumu.view.DailyFragment"
+        android:label="fragment_daily"
+        tools:layout="@layout/fragment_daily" />
+    <fragment
+        android:id="@+id/hourlyFragment"
+        android:name="com.yunusbedir.havadurumu.view.HourlyFragment"
+        android:label="fragment_hourly"
+        tools:layout="@layout/fragment_hourly" />
+</navigation>
