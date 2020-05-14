@@ -12,6 +12,7 @@ import com.yunusbedir.havadurumu.Model.BaseWeather
 
 import com.yunusbedir.havadurumu.R
 import com.yunusbedir.havadurumu.ViewModel.CurrentViewModel
+import com.yunusbedir.havadurumu.util.extImageLoad
 import kotlinx.android.synthetic.main.fragment_current.*
 import kotlinx.android.synthetic.main.layout_error.*
 
@@ -61,6 +62,7 @@ class CurrentFragment : Fragment() {
         tvUvi.text = baseWeather.current?.uvi?.toString()
         tvWindSpeed.text = baseWeather.current?.windSpeed?.toString()
         tvClouds.text = baseWeather.current?.clouds?.toString()
+        imgIcon.extImageLoad("https://openweathermap.org/img/wn/${baseWeather.current?.weather?.get(0)?.icon}@2x.png")
 
 
     }
