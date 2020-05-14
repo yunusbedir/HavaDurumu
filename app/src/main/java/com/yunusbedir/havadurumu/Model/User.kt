@@ -1,6 +1,7 @@
 package com.yunusbedir.havadurumu.Model
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -14,10 +15,8 @@ data class User(
     @PrimaryKey
     @ColumnInfo(name = "userId")
     val userId: Int = 1,
-    @ColumnInfo(name = "lat")
-    val lat: Int,
-    @ColumnInfo(name = "lon")
-    val lon: Int,
+    @Embedded
+    val region: Region,
     @ColumnInfo(name = "lang")
     val lang: String,
     @ColumnInfo(name = "units")

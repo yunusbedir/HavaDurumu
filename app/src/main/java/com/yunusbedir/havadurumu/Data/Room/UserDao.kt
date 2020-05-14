@@ -5,7 +5,7 @@ import androidx.room.Query
 import androidx.room.Update
 import com.yunusbedir.havadurumu.Model.User
 import io.reactivex.Completable
-import io.reactivex.Flowable
+import io.reactivex.Single
 
 
 /**
@@ -20,5 +20,5 @@ interface UserDao {
     fun update(user: User): Completable
 
     @Query("SELECT * FROM users LIMIT 1")
-    fun getUser(): Flowable<User>
+    fun getUser(): Single<User>
 }
