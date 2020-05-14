@@ -7,13 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.yunusbedir.havadurumu.Model.BaseWeather
 
 import com.yunusbedir.havadurumu.R
 import com.yunusbedir.havadurumu.ViewModel.CurrentViewModel
 import kotlinx.android.synthetic.main.fragment_current.*
+import kotlinx.android.synthetic.main.layout_error.*
 
 /**
  * A simple [Fragment] subclass.
@@ -32,6 +32,11 @@ class CurrentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.loadCurrentWeather()
+        swipeRefreshLayout.setOnRefreshListener {
+            incLayoutError.visibility = View.GONE
+            incLayoutEmpty.visibility = View.GONE
+            viewModel.loadCurrentWeather()
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -45,40 +50,37 @@ class CurrentFragment : Fragment() {
 
     private val renderWeather = Observer<BaseWeather> { baseWeather ->
         Log.v(TAG, "data updated $baseWeather")
-        /*
-        layoutError.visibility=View.GONE
-        layoutEmpty.visibility=View.GONE
-        adapter.update(it)*/
-        tv_main.text = baseWeather.current?.weather?.get(0)?.main
-        tv_feels_like.text = baseWeather.current?.feelsLike?.toInt().toString()
-        tv_temp.text = baseWeather.current?.temp?.toInt().toString()
-        tv_wind_deg.text = baseWeather.current?.windDeg?.toString()
-        tv_humidity.text = baseWeather.current?.humidity?.toString()
-        tv_pressure.text = baseWeather.current?.pressure?.toString()
-        tv_uvi.text = baseWeather.current?.uvi?.toString()
-        tv_wind_speed.text = baseWeather.current?.windSpeed?.toString()
-        tv_clouds.text = baseWeather.current?.clouds?.toString()
+        incLayoutError.visibility = View.GONE
+        incLayoutEmpty.visibility = View.GONE
+        tvMain.text = baseWeather.current?.weather?.get(0)?.main
+        tvFeelsLike.text = baseWeather.current?.feelsLike?.toInt().toString()
+        tvTemp.text = baseWeather.current?.temp?.toInt().toString()
+        tvWindDeg.text = baseWeather.current?.windDeg?.toString()
+        tvHumidity.text = baseWeather.current?.humidity?.toString()
+        tvPressure.text = baseWeather.current?.pressure?.toString()
+        tvUvi.text = baseWeather.current?.uvi?.toString()
+        tvWindSpeed.text = baseWeather.current?.windSpeed?.toString()
+        tvClouds.text = baseWeather.current?.clouds?.toString()
 
 
     }
 
     private val isViewLoadingObserver = Observer<Boolean> {
-        Log.v(TAG, "isViewLoading $it")
-        /*val visibility=if(it)View.VISIBLE else View.GONE
-        progressBar.visibility= visibility*/
+        Log.i(TAG, "isViewLoading $it")
+        swipeRefreshLayout.isRefreshing = it
     }
 
     private val onMessageErrorObserver = Observer<Any> {
-        Log.v(TAG, "onMessageError $it")
-        /*layoutError.visibility=View.VISIBLE
-        layoutEmpty.visibility=View.GONE
-        textViewError.text= "Error $it"*/
+        Log.i(TAG, "onMessageError $it")
+        incLayoutError.visibility = View.VISIBLE
+        incLayoutEmpty.visibility = View.GONE
+        textViewError.text = "Error $it"
     }
 
     private val emptyListObserver = Observer<Boolean> {
-        Log.v(TAG, "emptyListObserver $it")/*
-        layoutEmpty.visibility=View.VISIBLE
-        layoutError.visibility=View.GONE*/
+        Log.i(TAG, "emptyListObserver $it")
+        incLayoutEmpty.visibility = View.VISIBLE
+        incLayoutError.visibility = View.GONE
     }
 
 

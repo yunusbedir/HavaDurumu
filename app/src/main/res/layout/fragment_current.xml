@@ -2,6 +2,7 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,12 +10,13 @@
     tools:context=".view.CurrentFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/baseLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cv_main"
+            android:id="@+id/cvMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -24,59 +26,56 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_main"
+                android:id="@+id/clMain"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
 
                 <ImageView
-                    android:id="@+id/img_icon"
+                    android:id="@+id/imgIcon"
                     android:layout_width="200dp"
                     android:layout_height="0dp"
                     android:contentDescription="icon"
                     android:src="@mipmap/ic_launcher_round"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_temp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTemp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_main"
+                    android:id="@+id/tvMain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="MAİN"
                     android:textSize="@dimen/tv_title_size"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_feels_like"
+                    android:id="@+id/tvFeelsLike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Feels Like"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_main" />
+                    app:layout_constraintTop_toBottomOf="@id/tvMain" />
 
                 <TextView
-                    android:id="@+id/tv_temp"
+                    android:id="@+id/tvTemp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="16"
                     android:textSize="72sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_feels_like" />
+                    app:layout_constraintTop_toBottomOf="@id/tvFeelsLike" />
 
                 <TextView
-                    android:layout_marginBottom="8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="C"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_temp"
-                    app:layout_constraintStart_toEndOf="@id/tv_temp" />
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/c"
+                    app:layout_constraintBottom_toBottomOf="@id/tvTemp"
+                    app:layout_constraintStart_toEndOf="@id/tvTemp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -89,7 +88,7 @@
             android:padding="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_main">
+            app:layout_constraintTop_toBottomOf="@id/cvMain">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -107,7 +106,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_wind_deg"
+                    android:id="@+id/tvWindDeg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold" />
@@ -120,7 +119,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/tv_humidity"
+                    android:id="@+id/tvHumidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold" />
@@ -140,7 +139,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/tv_pressure"
+                    android:id="@+id/tvPressure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold" />
@@ -153,7 +152,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/tv_uvi"
+                    android:id="@+id/tvUvi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold" />
@@ -173,7 +172,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/tv_wind_speed"
+                    android:id="@+id/tvWindSpeed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold" />
@@ -188,11 +187,30 @@
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_clouds"
+                    android:id="@+id/tvClouds"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
+
+        <include
+            android:id="@+id/incLayoutEmpty"
+            layout="@layout/layout_empty"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/incLayoutError"
+            layout="@layout/layout_error"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
