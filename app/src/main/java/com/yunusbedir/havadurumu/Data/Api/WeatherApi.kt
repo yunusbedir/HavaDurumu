@@ -1,6 +1,6 @@
 package com.yunusbedir.havadurumu.Data.Api
 
-import com.yunusbedir.havadurumu.Model.BaseWeather
+import com.yunusbedir.havadurumu.Model.weather.BaseWeather
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

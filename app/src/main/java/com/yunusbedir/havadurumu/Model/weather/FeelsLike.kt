@@ -1,4 +1,4 @@
-package com.yunusbedir.havadurumu.Model
+package com.yunusbedir.havadurumu.Model.weather
 
 
 import com.google.gson.annotations.SerializedName

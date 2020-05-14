@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.yunusbedir.havadurumu.Model.BaseWeather
+import com.yunusbedir.havadurumu.Model.weather.BaseWeather
 
 import com.yunusbedir.havadurumu.R
 import com.yunusbedir.havadurumu.ViewModel.CurrentViewModel
-import com.yunusbedir.havadurumu.util.extImageLoad
+import com.yunusbedir.havadurumu.extensions.extSetBackGround
 import kotlinx.android.synthetic.main.fragment_current.*
 import kotlinx.android.synthetic.main.layout_error.*
 
@@ -53,7 +53,7 @@ class CurrentFragment : Fragment() {
         Log.v(TAG, "data updated $baseWeather")
         incLayoutError.visibility = View.GONE
         incLayoutEmpty.visibility = View.GONE
-        tvMain.text = baseWeather.current?.weather?.get(0)?.main
+        tvMain.text = baseWeather.current?.weather?.get(0)?.description.toString().toUpperCase()
         tvFeelsLike.text = baseWeather.current?.feelsLike?.toInt().toString()
         tvTemp.text = baseWeather.current?.temp?.toInt().toString()
         tvWindDeg.text = baseWeather.current?.windDeg?.toString()
@@ -62,8 +62,7 @@ class CurrentFragment : Fragment() {
         tvUvi.text = baseWeather.current?.uvi?.toString()
         tvWindSpeed.text = baseWeather.current?.windSpeed?.toString()
         tvClouds.text = baseWeather.current?.clouds?.toString()
-        imgIcon.extImageLoad("https://openweathermap.org/img/wn/${baseWeather.current?.weather?.get(0)?.icon}@2x.png")
-
+        baseLayout.extSetBackGround( baseWeather.current?.weather?.get(0)?.main.toString().toLowerCase())
 
     }
 

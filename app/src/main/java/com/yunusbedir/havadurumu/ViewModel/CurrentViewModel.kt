@@ -1,14 +1,12 @@
 package com.yunusbedir.havadurumu.ViewModel
 
 import android.app.Application
-import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.yunusbedir.havadurumu.Data.DataRepository
 import com.yunusbedir.havadurumu.Data.OperationCallBack
-import com.yunusbedir.havadurumu.Model.BaseWeather
+import com.yunusbedir.havadurumu.Model.weather.BaseWeather
 
 
 /**

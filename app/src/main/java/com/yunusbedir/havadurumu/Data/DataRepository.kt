@@ -2,10 +2,9 @@ package com.yunusbedir.havadurumu.Data
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import com.yunusbedir.havadurumu.Data.Api.WeatherService
 import com.yunusbedir.havadurumu.Data.Csv.ReadCsv
-import com.yunusbedir.havadurumu.Model.BaseWeather
+import com.yunusbedir.havadurumu.Model.weather.BaseWeather
 import com.yunusbedir.havadurumu.Model.Region
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver

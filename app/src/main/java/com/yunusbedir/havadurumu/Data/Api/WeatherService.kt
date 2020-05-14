@@ -1,6 +1,6 @@
 package com.yunusbedir.havadurumu.Data.Api
 
-import com.yunusbedir.havadurumu.Model.BaseWeather
+import com.yunusbedir.havadurumu.Model.weather.BaseWeather
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

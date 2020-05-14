@@ -1,9 +1,9 @@
-package com.yunusbedir.havadurumu.Model
+package com.yunusbedir.havadurumu.Model.weather
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Daily(
+data class Hourly(
     @SerializedName("clouds")
     var clouds: Int?,
     @SerializedName("dew_point")
@@ -11,19 +11,13 @@ data class Daily(
     @SerializedName("dt")
     var dt: Int?,
     @SerializedName("feels_like")
-    var feelsLike: FeelsLike?,
+    var feelsLike: Double?,
     @SerializedName("humidity")
     var humidity: Int?,
     @SerializedName("pressure")
     var pressure: Int?,
-    @SerializedName("sunrise")
-    var sunrise: Int?,
-    @SerializedName("sunset")
-    var sunset: Int?,
     @SerializedName("temp")
-    var temp: Temp?,
-    @SerializedName("uvi")
-    var uvi: Double?,
+    var temp: Double?,
     @SerializedName("weather")
     var weather: List<Weather>?,
     @SerializedName("wind_deg")
