@@ -14,6 +14,7 @@ import com.yunusbedir.havadurumu.Model.User
 import com.yunusbedir.havadurumu.R
 import com.yunusbedir.havadurumu.ViewModel.SettingsViewModel
 import kotlinx.android.synthetic.main.fragment_current.*
+import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.layout_error.*
 
 /**
@@ -48,7 +49,6 @@ class SettingsFragment : Fragment() {
         Log.v(TAG, "data updated $user")
         incLayoutError.visibility = View.GONE
         incLayoutEmpty.visibility = View.GONE
-
     }
 
     private val isViewLoadingObserver = Observer<Boolean> {
