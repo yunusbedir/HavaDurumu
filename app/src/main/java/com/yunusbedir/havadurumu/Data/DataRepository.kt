@@ -33,11 +33,7 @@ class DataRepository(private val context: Context) {
 
                 override fun onError(e: Throwable) {
                     operationCallBack.onError(e.localizedMessage!!)
-                    //
                 }
-
-
-
             })
     }
 
