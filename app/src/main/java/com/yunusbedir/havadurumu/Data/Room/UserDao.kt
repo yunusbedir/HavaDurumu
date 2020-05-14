@@ -4,6 +4,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.yunusbedir.havadurumu.Model.User
+import io.reactivex.Completable
 import io.reactivex.Flowable
 
 
@@ -13,10 +14,10 @@ import io.reactivex.Flowable
 interface UserDao {
 
     @Insert
-    fun insert(user: User)
+    fun insert(user: User): Completable
 
     @Update
-    fun update(user: User)
+    fun update(user: User): Completable
 
     @Query("SELECT * FROM users LIMIT 1")
     fun getUser(): Flowable<User>
