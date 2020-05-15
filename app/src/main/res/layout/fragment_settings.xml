@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:text="@string/sehir_sec"
-        android:drawableEnd="@drawable/ic_search_black_24dp"/>
+        android:drawableEnd="@drawable/ic_search"/>
 
     <RadioGroup
         android:id="@+id/radioGroupUnits"

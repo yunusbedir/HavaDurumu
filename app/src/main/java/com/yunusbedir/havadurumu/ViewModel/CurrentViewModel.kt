@@ -30,9 +30,7 @@ class CurrentViewModel(app: Application) : AndroidViewModel(app) {
     fun loadCurrentWeather() {
         _isViewLoading.postValue(true)
 
-        val region = repository.getSearchedList("Sultan")[0]
-
-        repository.getWeather(region.lat!!, region.lon!!, object : OperationCallBack<BaseWeather> {
+        repository.getWeather(33, 33, object : OperationCallBack<BaseWeather> {
             override fun onSuccess(data: BaseWeather?) {
                 _isViewLoading.postValue(false)
 
