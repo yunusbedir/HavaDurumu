@@ -1,5 +1,6 @@
 package com.yunusbedir.havadurumu.Data.Room
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
@@ -11,6 +12,7 @@ import io.reactivex.Single
 /**
  * Created by YUNUS BEDİR on 14.05.2020.
  */
+@Dao
 interface UserDao {
 
     @Insert

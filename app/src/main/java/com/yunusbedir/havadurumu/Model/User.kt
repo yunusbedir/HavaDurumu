@@ -14,11 +14,11 @@ import androidx.room.PrimaryKey
 data class User(
     @PrimaryKey
     @ColumnInfo(name = "userId")
-    val userId: Int = 1,
+    var userId: Int = 1,
     @Embedded
-    val region: Region,
+    var region: Region,
     @ColumnInfo(name = "lang")
-    val lang: String,
+    var lang: String,
     @ColumnInfo(name = "units")
-    val units: String
+    var units: String
 )
