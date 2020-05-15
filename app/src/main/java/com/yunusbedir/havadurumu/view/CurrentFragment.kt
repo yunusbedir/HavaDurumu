@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.yunusbedir.havadurumu.Model.weather.BaseWeather
 
 import com.yunusbedir.havadurumu.R
@@ -38,6 +39,10 @@ class CurrentFragment : Fragment() {
             incLayoutEmpty.visibility = View.GONE
             viewModel.loadCurrentWeather()
         }
+        fabSettings.setOnClickListener {
+            val action = CurrentFragmentDirections.actionCurrentFragmentToSettingsFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -62,7 +67,9 @@ class CurrentFragment : Fragment() {
         tvUvi.text = baseWeather.current?.uvi?.toString()
         tvWindSpeed.text = baseWeather.current?.windSpeed?.toString()
         tvClouds.text = baseWeather.current?.clouds?.toString()
-        baseLayout.extSetBackGround( baseWeather.current?.weather?.get(0)?.main.toString().toLowerCase())
+        baseLayout.extSetBackGround(
+            baseWeather.current?.weather?.get(0)?.main.toString().toLowerCase()
+        )
 
     }
 
