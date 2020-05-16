@@ -14,6 +14,7 @@ import com.yunusbedir.havadurumu.Model.User
  * Created by YUNUS BEDİR on 14.05.2020.
  */
 class SettingsViewModel(app: Application) : AndroidViewModel(app) {
+    private val TAG = this.javaClass.simpleName
     private val repository = DataRepository(app)
 
     private val _user = MutableLiveData<User>()

@@ -15,6 +15,7 @@ import com.yunusbedir.havadurumu.Model.User
     version = 1
 )
 abstract class UserDatabase : RoomDatabase() {
+    private val TAG = this.javaClass.simpleName
     abstract fun userDao(): UserDao
 
     companion object {

@@ -11,6 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Created by YUNUS BEDİR on 13.05.2020.
  */
 object WeatherService {
+    private val TAG = this.javaClass.simpleName
 
     private const val BASE_URL = "https://api.openweathermap.org"
 

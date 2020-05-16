@@ -11,9 +11,7 @@ import android.view.ViewGroup
 import android.widget.RadioGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.libraries.places.api.model.Place
-import com.google.android.libraries.places.api.model.RectangularBounds
 import com.google.android.libraries.places.api.model.TypeFilter
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.AutocompleteActivity
@@ -27,17 +25,16 @@ import com.yunusbedir.havadurumu.Model.enums.Units
 
 import com.yunusbedir.havadurumu.R
 import com.yunusbedir.havadurumu.ViewModel.SettingsViewModel
-import kotlinx.android.synthetic.main.fragment_current.*
 import kotlinx.android.synthetic.main.fragment_settings.*
-import kotlinx.android.synthetic.main.layout_error.*
-import java.util.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class SettingsFragment : Fragment() {
-    private val AUTOCOMPLATE_REQUEST_CODE = 1001
-    private val TAG = "SettingsFragment"
+    private val TAG = this.javaClass.simpleName
+    private val AUTOCOMPLETE_REQUEST_CODE = 1001
+
+
     private val user = User()
 
     private lateinit var viewModel: SettingsViewModel
@@ -62,7 +59,7 @@ class SettingsFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == AUTOCOMPLATE_REQUEST_CODE) {
+        if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 val place = data?.let { Autocomplete.getPlaceFromIntent(it) }
                 place?.let {
@@ -123,7 +120,7 @@ class SettingsFragment : Fragment() {
             .setCountries(listOf("TR"))
             .build(context!!)
 
-        startActivityForResult(intent, AUTOCOMPLATE_REQUEST_CODE)
+        startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE)
     }
 
     private val buttonUpdateClickListener = View.OnClickListener {
@@ -168,7 +165,7 @@ class SettingsFragment : Fragment() {
         }
 
         user.region?.let {
-            buttonOpenSearch.text =it.name
+            buttonOpenSearch.text = it.name
         }
 
     }

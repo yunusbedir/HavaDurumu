@@ -10,6 +10,7 @@ import com.google.android.libraries.places.api.Places
 import com.yunusbedir.havadurumu.R
 
 class MainActivity : AppCompatActivity() {
+    private val TAG = this.javaClass.simpleName
 
     private lateinit var navigationController: NavController
     private val API_KEY = "AIzaSyCkgnfx2M2M5Ugz6L8tytTRsYb55iBOoAo"

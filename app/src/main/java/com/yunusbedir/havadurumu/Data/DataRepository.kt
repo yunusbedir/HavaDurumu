@@ -38,7 +38,6 @@ class DataRepository(context: Context) {
     }
 
     fun updateUser(user: User, operationCallBack: OperationCallBack<Boolean>) {
-
         roomRepository.updateUser(user, operationCallBack)
     }
 }

@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.layout_error.*
  * A simple [Fragment] subclass.
  */
 class CurrentFragment : Fragment() {
-    private val TAG = "CurrentFragment"
+    private val TAG = this.javaClass.simpleName
     private lateinit var viewModel: CurrentViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
