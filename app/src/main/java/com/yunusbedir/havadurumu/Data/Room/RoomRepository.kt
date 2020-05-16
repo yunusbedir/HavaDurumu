@@ -64,6 +64,8 @@ class RoomRepository(private val context: Context) {
             @SuppressLint("CheckResult")
             override fun onSuccess(data: User?) {
                 user.userId = data?.userId
+                if (user.region == null)
+                    user.region = data?.region
                 UserDatabase.invoke(context).userDao().update(user)
                     .subscribeOn(Schedulers.newThread())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -85,7 +87,7 @@ class RoomRepository(private val context: Context) {
             }
 
             override fun onError(error: Throwable?) {
-                insertUser(user,operationCallBack)
+                insertUser(user, operationCallBack)
             }
 
         })
