@@ -12,11 +12,11 @@
         android:id="@+id/buttonOpenSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_search"
+        android:text="@string/sehir_sec"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/sehir_sec"
-        android:drawableEnd="@drawable/ic_search"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
         android:id="@+id/radioGroupUnits"
@@ -33,16 +33,19 @@
             android:textStyle="bold" />
 
         <RadioButton
+            android:id="@+id/rguFahrenheit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/fahrenheit" />
 
         <RadioButton
+            android:id="@+id/rguCelsius"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/celsius" />
 
         <RadioButton
+            android:id="@+id/rguKelvin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/kelvin" />
@@ -64,11 +67,13 @@
             android:textStyle="bold" />
 
         <RadioButton
+            android:id="@+id/rglTurkish"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/turkce_tr" />
 
         <RadioButton
+            android:id="@+id/rglEnglish"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ingilizce_en" />

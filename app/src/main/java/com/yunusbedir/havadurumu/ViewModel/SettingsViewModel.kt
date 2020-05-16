@@ -19,31 +19,18 @@ class SettingsViewModel(app: Application) : AndroidViewModel(app) {
     private val _user = MutableLiveData<User>()
     val user: LiveData<User> = _user
 
-    private val _isViewLoading = MutableLiveData<Boolean>()
-    val isViewLoading: LiveData<Boolean> = _isViewLoading
-
-    private val _onMessageError = MutableLiveData<Any>()
-    val onMessageError: LiveData<Any> = _onMessageError
-
-    private val _isEmpty = MutableLiveData<Boolean>()
-    val isEmpty: LiveData<Boolean> = _isEmpty
+    private val _onMessageError = MutableLiveData<Throwable>()
+    val onMessageError: LiveData<Throwable> = _onMessageError
 
     fun loadSettings() {
-        _isViewLoading.postValue(true)
-
         repository.getUser(object : OperationCallBack<User> {
             override fun onSuccess(data: User?) {
-                _isViewLoading.postValue(false)
-
-                if (data == null) {
-                    _isEmpty.postValue(true)
-                } else {
+                if (data != null) {
                     _user.value = data
                 }
             }
 
-            override fun onError(error: String?) {
-                _isViewLoading.postValue(false)
+            override fun onError(error: Throwable?) {
                 _onMessageError.postValue(error)
             }
 

@@ -41,7 +41,7 @@ class CurrentViewModel(app: Application) : AndroidViewModel(app) {
                 }
             }
 
-            override fun onError(error: String?) {
+            override fun onError(error: Throwable?) {
                 _isViewLoading.postValue(false)
                 _onMessageError.postValue(error)
             }

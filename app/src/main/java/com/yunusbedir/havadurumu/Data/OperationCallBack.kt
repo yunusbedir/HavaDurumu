@@ -6,6 +6,6 @@ package com.yunusbedir.havadurumu.Data
  */
 interface OperationCallBack<T> {
     fun onSuccess(data: T?)
-    fun onError(error: String?)
+    fun onError(error: Throwable?)
     //
 }
