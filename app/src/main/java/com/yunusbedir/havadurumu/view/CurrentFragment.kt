@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.yunusbedir.havadurumu.Model.Region
+import com.yunusbedir.havadurumu.Model.User
 import com.yunusbedir.havadurumu.Model.weather.BaseWeather
 
 import com.yunusbedir.havadurumu.R
@@ -33,22 +36,27 @@ class CurrentFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.loadCurrentWeather()
-        swipeRefreshLayout.setOnRefreshListener {
-            incLayoutError.visibility = View.GONE
-            incLayoutEmpty.visibility = View.GONE
-            viewModel.loadCurrentWeather()
-        }
-        fabSettings.setOnClickListener {
-            val action = CurrentFragmentDirections.actionCurrentFragmentToSettingsFragment()
-            Navigation.findNavController(it).navigate(action)
-        }
+        viewModel.loadUser()
+        swipeRefreshLayout.setOnRefreshListener(swipeRefreshLayoutListener)
+        fabSettings.setOnClickListener(fabSettingsOnClickListener)
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private val fabSettingsOnClickListener = View.OnClickListener {
+        val action = CurrentFragmentDirections.actionCurrentFragmentToSettingsFragment()
+        Navigation.findNavController(it).navigate(action)
+    }
+
+    private val swipeRefreshLayoutListener = SwipeRefreshLayout.OnRefreshListener {
+        incLayoutError.visibility = View.GONE
+        incLayoutEmpty.visibility = View.GONE
+        viewModel.loadUser()
     }
 
     private fun setupViewModel() {
         viewModel = ViewModelProvider(this).get(CurrentViewModel::class.java)
         viewModel.weather.observe(viewLifecycleOwner, renderWeather)
+        viewModel.user.observe(viewLifecycleOwner, renderUser)
         viewModel.isViewLoading.observe(viewLifecycleOwner, isViewLoadingObserver)
         viewModel.onMessageError.observe(viewLifecycleOwner, onMessageErrorObserver)
         viewModel.isEmptyList.observe(viewLifecycleOwner, emptyListObserver)
@@ -71,6 +79,11 @@ class CurrentFragment : Fragment() {
             baseWeather.current?.weather?.get(0)?.main.toString().toLowerCase()
         )
 
+    }
+
+    private val renderUser = Observer<User> { user ->
+        Log.v(TAG, "data updated $user")
+        viewModel.loadCurrentWeather(user.region)
     }
 
     private val isViewLoadingObserver = Observer<Boolean> {

@@ -167,7 +167,9 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        buttonOpenSearch.text = user.region!!.name
+        user.region?.let {
+            buttonOpenSearch.text =it.name
+        }
 
     }
 
