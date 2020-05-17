@@ -88,10 +88,10 @@ class SettingsFragment : Fragment() {
         RadioGroup.OnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.rglTurkish -> {
-                    user.lang = Language.Turkish.name
+                    user.lang = Language.Turkish.text
                 }
                 R.id.rglEnglish -> {
-                    user.lang = Language.Turkish.name
+                    user.lang = Language.English.text
                 }
             }
         }
@@ -100,13 +100,13 @@ class SettingsFragment : Fragment() {
         RadioGroup.OnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.rguFahrenheit -> {
-                    user.units = Units.Fahrenheit.name
+                    user.units = Units.Fahrenheit.text
                 }
                 R.id.rguCelsius -> {
-                    user.units = Units.Celsius.name
+                    user.units = Units.Celsius.text
                 }
                 R.id.rguKelvin -> {
-                    user.units = Units.Kelvin.name
+                    user.units = Units.Kelvin.text
                 }
             }
         }
@@ -141,25 +141,25 @@ class SettingsFragment : Fragment() {
     private val renderUser = Observer<User> { user ->
 
         when (user.lang) {
-            Language.Turkish.name -> {
+            Language.Turkish.text -> {
                 radioGroupLanguage.check(rglTurkish.id)
             }
-            Language.English.name -> {
+            Language.English.text -> {
                 radioGroupLanguage.check(rglEnglish.id)
             }
-            Language.Japanese.name -> {
+            Language.Japanese.text -> {
 //                radioGroupLanguage.check(rglTurkish.id)
             }
         }
 
         when (user.units) {
-            Units.Fahrenheit.name -> {
+            Units.Fahrenheit.text -> {
                 radioGroupUnits.check(rguFahrenheit.id)
             }
-            Units.Celsius.name -> {
+            Units.Celsius.text -> {
                 radioGroupUnits.check(rguCelsius.id)
             }
-            Units.Kelvin.name -> {
+            Units.Kelvin.text -> {
                 radioGroupUnits.check(rguKelvin.id)
             }
         }

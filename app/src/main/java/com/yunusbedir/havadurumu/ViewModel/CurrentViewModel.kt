@@ -33,13 +33,12 @@ class CurrentViewModel(app: Application) : AndroidViewModel(app) {
     private val _isEmptyList = MutableLiveData<Boolean>()
     val isEmptyList: LiveData<Boolean> = _isEmptyList
 
-    fun loadCurrentWeather(region: Region?) {
+    fun loadCurrentWeather(user: User?) {
         _isViewLoading.postValue(true)
 
-        if (region != null) {
+        if (user != null) {
             repository.getWeather(
-                region.lat!!,
-                region.lon!!,
+                user,
                 object : OperationCallBack<BaseWeather> {
                     override fun onSuccess(data: BaseWeather?) {
                         _isViewLoading.postValue(false)

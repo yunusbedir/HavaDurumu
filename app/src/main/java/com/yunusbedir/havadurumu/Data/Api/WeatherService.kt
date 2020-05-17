@@ -1,5 +1,6 @@
 package com.yunusbedir.havadurumu.Data.Api
 
+import com.yunusbedir.havadurumu.Model.User
 import com.yunusbedir.havadurumu.Model.weather.BaseWeather
 import io.reactivex.Single
 import retrofit2.Retrofit
@@ -24,16 +25,13 @@ object WeatherService {
             .create(WeatherApi::class.java)
     }
 
-    fun getWeather(lat: Int, lon: Int): Single<BaseWeather> {
-        return api.getWeather(lat, lon)
-    }
-
-    fun getWeather(lat: Int, lon: Int, units: String): Single<BaseWeather> {
-        return api.getWeather(lat, lon, units = units)
-    }
-
-    fun getWeather(lat: Int, lon: Int, lang: String, units: String): Single<BaseWeather> {
-        return api.getWeather(lat, lon, units = units, lang = lang)
+    fun getWeather(user: User): Single<BaseWeather> {
+        return api.getWeather(
+            user.region?.lat!!,
+            user.region?.lon!!,
+            lang = user.lang!!,
+            units = user.units!!
+        )
     }
 
 }

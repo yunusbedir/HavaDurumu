@@ -17,6 +17,7 @@ import com.yunusbedir.havadurumu.Model.weather.BaseWeather
 import com.yunusbedir.havadurumu.R
 import com.yunusbedir.havadurumu.ViewModel.CurrentViewModel
 import com.yunusbedir.havadurumu.extensions.extSetBackGround
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_current.*
 import kotlinx.android.synthetic.main.layout_error.*
 
@@ -83,7 +84,13 @@ class CurrentFragment : Fragment() {
 
     private val renderUser = Observer<User> { user ->
         Log.v(TAG, "data updated $user")
-        viewModel.loadCurrentWeather(user.region)
+        viewModel.loadCurrentWeather(user)
+        user?.let {
+            it.region?.let { region ->
+                tvRegionName.text = region.name
+            }
+
+        }
     }
 
     private val isViewLoadingObserver = Observer<Boolean> {

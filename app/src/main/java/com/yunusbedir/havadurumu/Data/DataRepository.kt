@@ -26,11 +26,10 @@ class DataRepository(context: Context) {
     private val apiRepository = ApiRepository(context)
 
     fun getWeather(
-        lat: Int,
-        lon: Int,
+        user: User,
         operationCallBack: OperationCallBack<BaseWeather>
     ) {
-        apiRepository.getWeather(lat, lon, operationCallBack)
+        apiRepository.getWeather(user, operationCallBack)
     }
 
     fun getUser(operationCallBack: OperationCallBack<User>) {
