@@ -13,4 +13,12 @@
     <string name="turkce_tr">Türkçe,tr</string>
     <string name="guncelle">Güncelle</string>
     <string name="sehir_sec">Şehir Seç</string>
+    <string name="ruzgar_yonu">Rüzgar Yönü</string>
+    <string name="nem">Nem</string>
+    <string name="basinc">Basınç</string>
+    <string name="uv_endeksi">UV endeksi</string>
+    <string name="ruzgar_hizi">Rüzgar Hızı</string>
+    <string name="gorus_uzakligi">Görüş Uzaklığı</string>
+    <string name="bos_veri">Boş Veri</string>
+    <string name="hissadilen_sicaklik">Hissadilen Sıcaklık : </string>
 </resources>

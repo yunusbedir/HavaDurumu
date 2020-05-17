@@ -16,170 +16,196 @@
         android:background="@drawable/day_clearsky">
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clMain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tvMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="@dimen/tv_title_size"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvFeelsLike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvMain" />
-
-            <TextView
-                android:id="@+id/tvTemp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="72sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvFeelsLike" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="@string/c"
-                app:layout_constraintBottom_toBottomOf="@id/tvTemp"
-                app:layout_constraintStart_toEndOf="@id/tvTemp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal"
-            android:padding="4dp"
-            app:layout_constraintBottom_toTopOf="@id/fabSettings"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:orientation="vertical"
+            android:background="@drawable/background"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clMain"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
+                    android:id="@+id/tvMain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Rüzgar Yönü"
-                    android:textSize="16sp"
-
-                    />
+                    android:textSize="@dimen/tv_title_size"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tvWindDeg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold" />
+                    android:text="@string/hissadilen_sicaklik"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFeelsLike"
+                    app:layout_constraintEnd_toStartOf="@id/tvFeelsLike"
+                    app:layout_constraintTop_toTopOf="@id/tvFeelsLike" />
 
                 <TextView
+                    android:id="@+id/tvFeelsLike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Nem"
-                    android:textSize="16sp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvMain" />
 
                 <TextView
-                    android:id="@+id/tvHumidity"
+                    android:id="@+id/tvTemp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    android:layout_marginTop="8dp"
+                    android:textSize="72sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvFeelsLike" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/c"
+                    app:layout_constraintBottom_toBottomOf="@id/tvTemp"
+                    app:layout_constraintStart_toEndOf="@id/tvTemp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvRegionName"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_height="wrap_content"/>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginBottom="8dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                app:layout_constraintBottom_toTopOf="@id/fabSettings"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Basınç"
-                    android:textSize="16sp" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tvPressure"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/ruzgar_yonu"
+                        android:textSize="16sp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tvWindDeg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/nem"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvHumidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/basinc"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvPressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/uv_endeksi"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvUvi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="UV endeksi"
-                    android:textSize="16sp" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tvUvi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/ruzgar_hizi"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvWindSpeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/gorus_uzakligi"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvClouds"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+                </LinearLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Rüzgar Hızı"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvWindSpeed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Görüş Uzaklığı"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvClouds"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="80dp"/>
         </LinearLayout>
 
         <include
@@ -206,6 +232,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:clickable="true"
+            android:focusable="true"
             android:src="@drawable/ic_settings"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
